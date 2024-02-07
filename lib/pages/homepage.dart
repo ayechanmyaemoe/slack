@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:slack/components/channel_box.dart';
 import 'package:slack/components/drawer.dart';
+import 'package:slack/later_package/later.dart';
 import 'package:slack/components/row_template.dart';
 
 class HomePage extends StatelessWidget {
@@ -63,7 +64,8 @@ class HomePage extends StatelessWidget {
               SizedBox(
                 height: 13,
               ),
-              RowTemplate(icon: Icon(Icons.file_copy_outlined), text: 'Canvases'),
+              RowTemplate(
+                  icon: Icon(Icons.file_copy_outlined), text: 'Canvases'),
               SizedBox(
                 height: 13,
               ),
@@ -71,7 +73,15 @@ class HomePage extends StatelessWidget {
               SizedBox(
                 height: 13,
               ),
-              RowTemplate(icon: Icon(Icons.save_alt), text: 'Later'),
+              GestureDetector(
+                onTap: () {
+                  Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => Later()));
+                },
+                  child:
+                      RowTemplate(icon: Icon(Icons.save_alt), text: 'Later')),
               SizedBox(
                 height: 13,
               ),
@@ -83,7 +93,9 @@ class HomePage extends StatelessWidget {
               ),
               Stack(
                 children: [
-                  RowTemplate(icon: Icon(Icons.account_circle_rounded), text: 'Zoe Maxwell'),
+                  RowTemplate(
+                      icon: Icon(Icons.account_circle_rounded),
+                      text: 'Zoe Maxwell'),
                   Positioned(
                       right: 10,
                       top: 6,
@@ -101,7 +113,10 @@ class HomePage extends StatelessWidget {
                 children: [
                   GestureDetector(
                     onTap: () {
-                      Navigator.push(context, MaterialPageRoute(builder: (context) => ChannelBox()));
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => ChannelBox()));
                     },
                     child: Row(
                       children: [

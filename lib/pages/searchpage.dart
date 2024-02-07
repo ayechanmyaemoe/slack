@@ -4,6 +4,8 @@ import 'dart:ui';
 
 import 'package:flutter/material.dart';
 import 'package:slack/components/row_template.dart';
+import 'package:slack/search_browse_pages/browse_people.dart';
+import 'package:slack/search_browse_pages/browse_workflows.dart';
 
 class SearchPage extends StatelessWidget {
   const SearchPage({super.key});
@@ -34,7 +36,13 @@ class SearchPage extends StatelessWidget {
         padding: EdgeInsets.all(20),
         child: Column(
           children: [
-            RowTemplate(icon: Icon(Icons.people_alt), text: 'Browse people'),
+            GestureDetector(
+                onTap: () {
+                  Navigator.push(context,
+                      MaterialPageRoute(builder: (context) => BrowsePeople()));
+                },
+                child: RowTemplate(
+                    icon: Icon(Icons.people_alt), text: 'Browse people')),
             SizedBox(
               height: 13,
             ),
@@ -42,7 +50,15 @@ class SearchPage extends StatelessWidget {
             SizedBox(
               height: 13,
             ),
-            RowTemplate(icon: Icon(Icons.play_arrow), text: 'Browse workflows'),
+            GestureDetector(
+              onTap: () {
+                Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => BrowseWorkflows()));
+              },
+                child: RowTemplate(
+                    icon: Icon(Icons.play_arrow), text: 'Browse workflows')),
             SizedBox(
               height: 13,
             ),
