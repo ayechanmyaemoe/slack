@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:slack/components/channel_box.dart';
 import 'package:slack/components/drawer.dart';
+import 'package:slack/components/row_template.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({super.key});
@@ -62,57 +63,15 @@ class HomePage extends StatelessWidget {
               SizedBox(
                 height: 13,
               ),
-              Row(
-                children: [
-                  Icon(
-                    Icons.file_copy_outlined,
-                    color: Colors.black.withOpacity(0.7),
-                  ),
-                  SizedBox(
-                    width: 10,
-                  ),
-                  Text(
-                    'Canvases',
-                    style: TextStyle(fontWeight: FontWeight.bold),
-                  ),
-                ],
-              ),
+              RowTemplate(icon: Icon(Icons.file_copy_outlined), text: 'Canvases'),
               SizedBox(
                 height: 13,
               ),
-              Row(
-                children: [
-                  Icon(
-                    Icons.send,
-                    color: Colors.black.withOpacity(0.7),
-                  ),
-                  SizedBox(
-                    width: 10,
-                  ),
-                  Text(
-                    'Drafts & Sent',
-                    style: TextStyle(fontWeight: FontWeight.bold),
-                  )
-                ],
-              ),
+              RowTemplate(icon: Icon(Icons.send), text: 'Drafts & Sent'),
               SizedBox(
                 height: 13,
               ),
-              Row(
-                children: [
-                  Icon(
-                    Icons.save_alt,
-                    color: Colors.black.withOpacity(0.7),
-                  ),
-                  SizedBox(
-                    width: 10,
-                  ),
-                  Text(
-                    'Later',
-                    style: TextStyle(fontWeight: FontWeight.bold),
-                  )
-                ],
-              ),
+              RowTemplate(icon: Icon(Icons.save_alt), text: 'Later'),
               SizedBox(
                 height: 13,
               ),
@@ -124,21 +83,7 @@ class HomePage extends StatelessWidget {
               ),
               Stack(
                 children: [
-                  Row(
-                    children: [
-                      Icon(
-                        Icons.account_circle_rounded,
-                        color: Colors.black.withOpacity(0.7),
-                      ),
-                      SizedBox(
-                        width: 10,
-                      ),
-                      Text(
-                        'Zoe Maxwell',
-                        style: TextStyle(fontWeight: FontWeight.bold),
-                      ),
-                    ],
-                  ),
+                  RowTemplate(icon: Icon(Icons.account_circle_rounded), text: 'Zoe Maxwell'),
                   Positioned(
                       right: 10,
                       top: 6,
@@ -250,7 +195,7 @@ class HomePage extends StatelessWidget {
               Row(
                 children: [
                   Text('Channels', style: TextStyle(fontSize: 13)),
-                  SizedBox(width: 290),
+                  Spacer(),
                   Icon(
                     Icons.add,
                     color: Colors.black.withOpacity(0.5),
@@ -366,9 +311,7 @@ class HomePage extends StatelessWidget {
               Row(
                 children: [
                   Text('Direct messages', style: TextStyle(fontSize: 13)),
-                  SizedBox(
-                    width: 240,
-                  ),
+                  Spacer(),
                   Icon(Icons.arrow_drop_up)
                 ],
               ),
@@ -388,7 +331,7 @@ class HomePage extends StatelessWidget {
               Row(
                 children: [
                   Text('Next, you could...', style: TextStyle(fontSize: 13)),
-                  SizedBox(width: 200),
+                  Spacer(),
                   Text('Clear all', style: TextStyle(fontSize: 13))
                 ],
               ),

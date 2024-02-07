@@ -22,7 +22,7 @@ class Messages extends StatelessWidget {
                     borderRadius: BorderRadius.all(Radius.circular(8)),
                   )),
             ),
-            SizedBox(height: 300,),
+            SizedBox(height: 200,),
             Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [

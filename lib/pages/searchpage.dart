@@ -3,6 +3,7 @@
 import 'dart:ui';
 
 import 'package:flutter/material.dart';
+import 'package:slack/components/row_template.dart';
 
 class SearchPage extends StatelessWidget {
   const SearchPage({super.key});
@@ -26,61 +27,22 @@ class SearchPage extends StatelessWidget {
       ),
       Container(
         decoration: BoxDecoration(
-            border: Border(top: BorderSide(style: BorderStyle.solid, color: Colors.black.withOpacity(0.5)))),
+            border: Border(
+                top: BorderSide(
+                    style: BorderStyle.solid,
+                    color: Colors.black.withOpacity(0.5)))),
         padding: EdgeInsets.all(20),
         child: Column(
           children: [
-            Row(
-              children: [
-                Icon(
-                  Icons.people_alt,
-                  color: Colors.black.withOpacity(0.7),
-                ),
-                SizedBox(
-                  width: 10,
-                ),
-                Text(
-                  'Browse people',
-                  style: TextStyle(fontWeight: FontWeight.bold),
-                )
-              ],
-            ),
+            RowTemplate(icon: Icon(Icons.people_alt), text: 'Browse people'),
             SizedBox(
               height: 13,
             ),
-            Row(
-              children: [
-                Icon(
-                  Icons.search_off,
-                  color: Colors.black.withOpacity(0.7),
-                ),
-                SizedBox(
-                  width: 10,
-                ),
-                Text(
-                  'Browse channels',
-                  style: TextStyle(fontWeight: FontWeight.bold),
-                )
-              ],
-            ),
+            RowTemplate(icon: Icon(Icons.search_off), text: 'Browse channels'),
             SizedBox(
               height: 13,
             ),
-            Row(
-              children: [
-                Icon(
-                  Icons.play_arrow,
-                  color: Colors.black.withOpacity(0.7),
-                ),
-                SizedBox(
-                  width: 10,
-                ),
-                Text(
-                  'Browse workflows',
-                  style: TextStyle(fontWeight: FontWeight.bold),
-                )
-              ],
-            ),
+            RowTemplate(icon: Icon(Icons.play_arrow), text: 'Browse workflows'),
             SizedBox(
               height: 13,
             ),
@@ -92,101 +54,86 @@ class SearchPage extends StatelessWidget {
             SizedBox(
               height: 13,
             ),
-            Stack(
+            Row(
               children: [
-                Row(
-                  children: [
-                    Icon(Icons.add_box_rounded),
-                    SizedBox(
-                      width: 10,
-                    ),
-                    Text(
-                      'in:',
-                      style: TextStyle(fontWeight: FontWeight.bold),
-                    )
-                  ],
+                Icon(Icons.add_box_rounded),
+                SizedBox(
+                  width: 10,
                 ),
-                Positioned(right: 10, top: 6, child: Text('Ex: #general'))
+                Text(
+                  'in:',
+                  style: TextStyle(fontWeight: FontWeight.bold),
+                ),
+                Spacer(),
+                Text('Ex: #general'),
               ],
             ),
             SizedBox(
               height: 13,
             ),
-            Stack(
+            Row(
               children: [
-                Row(
-                  children: [
-                    Icon(Icons.add_box_rounded),
-                    SizedBox(
-                      width: 10,
-                    ),
-                    Text(
-                      'from:',
-                      style: TextStyle(fontWeight: FontWeight.bold),
-                    )
-                  ],
+                Icon(Icons.add_box_rounded),
+                SizedBox(
+                  width: 10,
                 ),
-                Positioned(right: 10, top: 6, child: Text('Ex: Zoe Maxwell'))
+                Text(
+                  'from:',
+                  style: TextStyle(fontWeight: FontWeight.bold),
+                ),
+                Spacer(),
+                Text('Ex: Zoe Maxwell'),
               ],
             ),
             SizedBox(
               height: 13,
             ),
-            Stack(
+            Row(
               children: [
-                Row(
-                  children: [
-                    Icon(Icons.add_box_rounded),
-                    SizedBox(
-                      width: 10,
-                    ),
-                    Text(
-                      'is:',
-                      style: TextStyle(fontWeight: FontWeight.bold),
-                    )
-                  ],
+                Icon(Icons.add_box_rounded),
+                SizedBox(
+                  width: 10,
                 ),
-                Positioned(right: 10, top: 6, child: Text('Ex: saved'))
+                Text(
+                  'is:',
+                  style: TextStyle(fontWeight: FontWeight.bold),
+                ),
+                Spacer(),
+                Text('Ex: saved'),
               ],
             ),
             SizedBox(
               height: 13,
             ),
-            Stack(
+            Row(
               children: [
-                Row(
-                  children: [
-                    Icon(Icons.add_box_rounded),
-                    SizedBox(
-                      width: 10,
-                    ),
-                    Text(
-                      'after:',
-                      style: TextStyle(fontWeight: FontWeight.bold),
-                    )
-                  ],
+                Icon(Icons.add_box_rounded),
+                SizedBox(
+                  width: 10,
                 ),
-                Positioned(right: 10, top: 6, child: Text('Ex: 2020-11-03'))
+                Text(
+                  'after:',
+                  style: TextStyle(fontWeight: FontWeight.bold),
+                ),
+                Spacer(),
+                Text('Ex: 2020-11-03'),
               ],
             ),
             SizedBox(
               height: 13,
             ),
-            Stack(
+            Row(
               children: [
-                Row(
-                  children: [
-                    Icon(Icons.add_box_rounded),
-                    SizedBox(
-                      width: 10,
-                    ),
-                    Text(
-                      'to:',
-                      style: TextStyle(fontWeight: FontWeight.bold),
-                    )
-                  ],
+                Icon(Icons.add_box_rounded),
+                SizedBox(
+                  width: 10,
                 ),
-                Positioned(right: 10, top: 6, child: Text('Ex: me'))
+                Text(
+                  'to:',
+                  style: TextStyle(fontWeight: FontWeight.bold),
+                ),
+                Spacer(),
+                Text('Ex: me'),
               ],
             ),
           ],
