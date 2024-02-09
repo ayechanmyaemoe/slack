@@ -6,6 +6,7 @@ import 'package:flutter/material.dart';
 import 'package:slack/components/row_template.dart';
 
 class SearchPage extends StatelessWidget {
+
   const SearchPage({super.key});
 
   @override
