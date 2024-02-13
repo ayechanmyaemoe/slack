@@ -1,8 +1,9 @@
 // ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables, sort_child_properties_last
 
 import 'package:flutter/material.dart';
-import 'package:slack/components/add_workspace.dart';
-import 'package:slack/components/preferences.dart';
+import 'package:slack/about_drawer/add_workspace.dart';
+import 'package:slack/about_drawer/preferences.dart';
+import 'package:slack/components/row_template.dart';
 
 class DrawerPage extends StatelessWidget {
   const DrawerPage({super.key});
@@ -59,16 +60,11 @@ class DrawerPage extends StatelessWidget {
             Divider(),
             Column(
               children: [
-                Row(
-                  children: [
-                    Icon(Icons.add_rounded),
-                    SizedBox(
-                      width: 10,
-                    ),
-                    GestureDetector(child: Text('Add a workspace'), onTap: () {
-                      Navigator.push(context, MaterialPageRoute(builder: (context) => AddWorkspace()));
-                    },)
-                  ],
+                GestureDetector(
+                  onTap: () {
+                    Navigator.push(context, MaterialPageRoute(builder: (context) => AddWorkspace()));
+                  },
+                  child: RowTemplate(icon: Icon(Icons.settings), text: 'Add a workspace')
                 ),
                 SizedBox(
                   height: 15,
@@ -77,15 +73,7 @@ class DrawerPage extends StatelessWidget {
                   onTap: () {
                     Navigator.push(context, MaterialPageRoute(builder: (context) => Preferences()));
                   },
-                  child: Row(
-                    children: [
-                      Icon(Icons.settings),
-                      SizedBox(
-                        width: 10,
-                      ),
-                      Text('Preferences')
-                    ],
-                  ),
+                  child: RowTemplate(icon: Icon(Icons.settings), text: 'Preferences')
                 ),
                 SizedBox(
                   height: 15,
@@ -94,15 +82,7 @@ class DrawerPage extends StatelessWidget {
                   onTap: () {
                     Navigator.pushNamed(context, 'https://slack.com/help');
                   },
-                  child: Row(
-                    children: [
-                      Icon(Icons.question_mark_rounded),
-                      SizedBox(
-                        width: 10,
-                      ),
-                      Text('Help')
-                    ],
-                  ),
+                  child: RowTemplate(icon: Icon(Icons.question_mark_rounded), text: 'Help')
                 ),
               ],
             )

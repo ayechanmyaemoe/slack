@@ -4,8 +4,8 @@ import 'package:flutter/material.dart';
 import 'package:slack/components/message_box.dart';
 import 'package:slack/components/message_template.dart';
 
-class ChannelBox extends StatelessWidget {
-  const ChannelBox({super.key});
+class ChannelAppBar extends StatelessWidget {
+  const ChannelAppBar({super.key});
 
   @override
   Widget build(BuildContext context) {

@@ -2,6 +2,7 @@
 
 import 'package:flutter/material.dart';
 
+// This will appear once the message textbox is on focused
 class MessageBoxIcons extends StatelessWidget {
   const MessageBoxIcons({super.key});
 

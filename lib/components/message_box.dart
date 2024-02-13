@@ -3,6 +3,7 @@
 import 'package:flutter/material.dart';
 import 'package:slack/components/message_box_icons.dart';
 
+// Message TextBox Style
 class MessageBox extends StatelessWidget {
   const MessageBox({super.key});
 

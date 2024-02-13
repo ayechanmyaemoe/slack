@@ -1,5 +1,8 @@
+// ignore_for_file: prefer_const_constructors
+
 import 'package:flutter/material.dart';
 
+//Template
 class IconWithTwoText extends StatelessWidget {
   final Icon icon;
   final String text1;

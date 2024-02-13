@@ -2,9 +2,11 @@
 
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:slack/components/channel_box.dart';
-import 'package:slack/components/drawer.dart';
-import 'package:slack/later_package/later.dart';
+import 'package:slack/components/channel_appbar.dart';
+import 'package:slack/about_drawer/drawer.dart';
+import 'package:slack/about_later/later.dart';
+import 'package:slack/components/channel_row.dart';
+import 'package:slack/components/container_row.dart';
 import 'package:slack/components/row_template.dart';
 
 class HomePage extends StatelessWidget {
@@ -74,12 +76,10 @@ class HomePage extends StatelessWidget {
                 height: 13,
               ),
               GestureDetector(
-                onTap: () {
-                  Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                              builder: (context) => Later()));
-                },
+                  onTap: () {
+                    Navigator.push(context,
+                        MaterialPageRoute(builder: (context) => Later()));
+                  },
                   child:
                       RowTemplate(icon: Icon(Icons.save_alt), text: 'Later')),
               SizedBox(
@@ -116,7 +116,7 @@ class HomePage extends StatelessWidget {
                       Navigator.push(
                           context,
                           MaterialPageRoute(
-                              builder: (context) => ChannelBox()));
+                              builder: (context) => ChannelAppBar()));
                     },
                     child: Row(
                       children: [
@@ -165,45 +165,11 @@ class HomePage extends StatelessWidget {
               SizedBox(
                 height: 13,
               ),
-              Row(
-                children: [
-                  Padding(
-                    padding: const EdgeInsets.only(left: 4),
-                    child: FaIcon(
-                      FontAwesomeIcons.hashtag,
-                      size: 15,
-                    ),
-                  ),
-                  SizedBox(
-                    width: 10,
-                  ),
-                  Text(
-                    'cutomer-education',
-                    style: TextStyle(fontWeight: FontWeight.bold),
-                  ),
-                ],
-              ),
+              ChannelRow(text: 'customer-education'),
               SizedBox(
                 height: 13,
               ),
-              Row(
-                children: [
-                  Padding(
-                    padding: const EdgeInsets.only(left: 4),
-                    child: FaIcon(
-                      FontAwesomeIcons.hashtag,
-                      size: 15,
-                    ),
-                  ),
-                  SizedBox(
-                    width: 10,
-                  ),
-                  Text(
-                    'product-launch',
-                    style: TextStyle(fontWeight: FontWeight.bold),
-                  ),
-                ],
-              ),
+              ChannelRow(text: 'product-launch'),
               SizedBox(
                 height: 13,
               ),
@@ -220,87 +186,19 @@ class HomePage extends StatelessWidget {
               SizedBox(
                 height: 13,
               ),
-              Row(
-                children: [
-                  Padding(
-                    padding: const EdgeInsets.only(left: 4),
-                    child: FaIcon(
-                      FontAwesomeIcons.hashtag,
-                      size: 15,
-                    ),
-                  ),
-                  SizedBox(
-                    width: 10,
-                  ),
-                  Text(
-                    'announcements',
-                    style: TextStyle(fontWeight: FontWeight.bold),
-                  ),
-                ],
-              ),
+              ChannelRow(text: 'announcements'),
               SizedBox(
                 height: 13,
               ),
-              Row(
-                children: [
-                  Padding(
-                    padding: const EdgeInsets.only(left: 4),
-                    child: FaIcon(
-                      FontAwesomeIcons.hashtag,
-                      size: 15,
-                    ),
-                  ),
-                  SizedBox(
-                    width: 10,
-                  ),
-                  Text(
-                    'competitive',
-                    style: TextStyle(fontWeight: FontWeight.bold),
-                  ),
-                ],
-              ),
+              ChannelRow(text: 'competitive'),
               SizedBox(
                 height: 13,
               ),
-              Row(
-                children: [
-                  Padding(
-                    padding: const EdgeInsets.only(left: 4),
-                    child: FaIcon(
-                      FontAwesomeIcons.hashtag,
-                      size: 15,
-                    ),
-                  ),
-                  SizedBox(
-                    width: 10,
-                  ),
-                  Text(
-                    'marketing-team',
-                    style: TextStyle(fontWeight: FontWeight.bold),
-                  ),
-                ],
-              ),
+              ChannelRow(text: 'marketing-team'),
               SizedBox(
                 height: 13,
               ),
-              Row(
-                children: [
-                  Padding(
-                    padding: const EdgeInsets.only(left: 4),
-                    child: FaIcon(
-                      FontAwesomeIcons.hashtag,
-                      size: 15,
-                    ),
-                  ),
-                  SizedBox(
-                    width: 10,
-                  ),
-                  Text(
-                    'quarterly-planning',
-                    style: TextStyle(fontWeight: FontWeight.bold),
-                  ),
-                ],
-              ),
+              ChannelRow(text: 'quarterly-planning'),
               SizedBox(
                 height: 13,
               ),
@@ -353,123 +251,43 @@ class HomePage extends StatelessWidget {
               SizedBox(
                 height: 15,
               ),
-              Container(
-                padding: EdgeInsets.all(10),
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.all(Radius.circular(18)),
-                  color: Color.fromARGB(255, 245, 243, 246),
-                ),
-                width: 500,
-                child: Row(children: [
-                  Icon(
+              ContainerRow(
+                  icon: Icon(
                     Icons.group,
                     size: 35,
                   ),
-                  SizedBox(
-                    width: 50,
-                  ),
-                  Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Text(
-                        'Add templates',
-                        style: TextStyle(fontWeight: FontWeight.bold),
-                      ),
-                      Text('Bring your whole team together')
-                    ],
-                  )
-                ]),
-              ),
+                  title: 'Add templates',
+                  text: 'Bring your whole team together'),
               SizedBox(
                 height: 13,
               ),
-              Container(
-                padding: EdgeInsets.all(10),
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.all(Radius.circular(18)),
-                  color: Color.fromARGB(255, 245, 243, 246),
-                ),
-                width: 500,
-                child: Row(children: [
-                  Icon(
+              ContainerRow(
+                  icon: Icon(
                     Icons.emoji_people,
                     size: 35,
                   ),
-                  SizedBox(
-                    width: 50,
-                  ),
-                  Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Text(
-                        'Send a message',
-                        style: TextStyle(fontWeight: FontWeight.bold),
-                      ),
-                      Text('Get the conversation rolling')
-                    ],
-                  )
-                ]),
-              ),
+                  title: 'Send a message',
+                  text: 'Get the conversation rolling'),
               SizedBox(
                 height: 13,
               ),
-              Container(
-                padding: EdgeInsets.all(10),
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.all(Radius.circular(18)),
-                  color: Color.fromARGB(255, 245, 243, 246),
-                ),
-                width: 500,
-                child: Row(children: [
-                  Icon(
+              ContainerRow(
+                  icon: Icon(
                     Icons.screen_search_desktop,
                     size: 35,
                   ),
-                  SizedBox(
-                    width: 50,
-                  ),
-                  Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Text(
-                        'Get Slack for desktop',
-                        style: TextStyle(fontWeight: FontWeight.bold),
-                      ),
-                      Text('Stay connected from any device')
-                    ],
-                  )
-                ]),
-              ),
+                  title: 'Get Slack for desktop',
+                  text: 'Stay connected from any device'),
               SizedBox(
                 height: 13,
               ),
-              Container(
-                padding: EdgeInsets.all(10),
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.all(Radius.circular(18)),
-                  color: Color.fromARGB(255, 245, 243, 246),
-                ),
-                width: 500,
-                child: Row(children: [
-                  Icon(
+              ContainerRow(
+                  icon: Icon(
                     Icons.question_mark,
                     size: 35,
                   ),
-                  SizedBox(
-                    width: 50,
-                  ),
-                  Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Text(
-                        'See a few tips',
-                        style: TextStyle(fontWeight: FontWeight.bold),
-                      ),
-                      Text('Learn the ins-and-outs of Slack')
-                    ],
-                  )
-                ]),
-              ),
+                  title: 'See a few tips',
+                  text: 'Learn the ins-and-outs of Slack'),
               SizedBox(
                 height: 100,
               )

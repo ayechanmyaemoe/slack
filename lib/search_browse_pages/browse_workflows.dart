@@ -2,7 +2,6 @@
 
 import 'package:flutter/material.dart';
 import 'package:slack/components/custom_appbar.dart';
-import 'package:slack/components/online_icon.dart';
 import 'package:slack/components/title_template.dart';
 
 class BrowseWorkflows extends StatelessWidget {
