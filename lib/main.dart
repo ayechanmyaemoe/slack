@@ -1,5 +1,6 @@
 // ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables, sort_child_properties_last
 
+
 import 'package:flutter/material.dart';
 import 'package:slack/about_drawer/drawer.dart';
 import 'package:slack/pages/homepage.dart';
@@ -21,6 +22,19 @@ class MyApp extends StatefulWidget {
 
 class _MyAppState extends State<MyApp> {
   int currentIndex = 0;
+  bool _showFAB = true;
+
+  void _updateFABVisibility(int index) {
+    if (index == 3 || index == 4) {
+      setState(() {
+        _showFAB = false;
+      });
+    } else {
+      setState(() {
+        _showFAB = true;
+      });
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -29,23 +43,13 @@ class _MyAppState extends State<MyApp> {
       home: Scaffold(
         drawer: DrawerPage(),
         body: pages[currentIndex],
-        floatingActionButton: FloatingActionButton(
-            mini: true,
-            onPressed: () {},
-            child: Icon(
-              Icons.edit,
-              color: Colors.white,
-              size: 20,
-            ),
-            backgroundColor: Color.fromARGB(255, 96, 8, 111),
-            shape: RoundedRectangleBorder(
-              borderRadius: BorderRadius.all(Radius.circular(15)),
-            )),
+        floatingActionButton: _showFAB ? myFloatingActionButton() : null,
         bottomNavigationBar: NavigationBar(
           backgroundColor: Colors.white,
           onDestinationSelected: (int index) {
             setState(() {
               currentIndex = index;
+              _updateFABVisibility(index);
             });
           },
           selectedIndex: currentIndex,
@@ -65,4 +69,21 @@ class _MyAppState extends State<MyApp> {
   }
 
   final pages = [HomePage(), Messages(), Mentions(), SearchPage(), Profile()];
+
+  Widget myFloatingActionButton() {
+    return FloatingActionButton(
+        mini: true,
+        onPressed: () {},
+        child: Icon(
+          Icons.edit,
+          color: Colors.white,
+          size: 20,
+        ),
+        backgroundColor: Color.fromARGB(255, 96, 8, 111),
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.all(Radius.circular(15)),
+        ));
+  }
+
+  
 }

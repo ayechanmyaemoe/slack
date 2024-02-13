@@ -6,6 +6,7 @@ import 'package:slack/search_browse_pages/browse_people.dart';
 import 'package:slack/search_browse_pages/browse_workflows.dart';
 
 class SearchPage extends StatelessWidget {
+
   const SearchPage({super.key});
 
   @override
